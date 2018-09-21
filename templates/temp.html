@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>{{params.title}}</title>
+</head>
+<body>
+    <!--<tr>-->
+        <!--<li >-->
+            <!--{{params.dic.bookname}}-->
+        <!--</li>-->
+        <!--<li>-->
+
+        <!--</li>-->
+        <!--<li>-->
+
+        <!--</li>-->
+        <!--<li>-->
+
+        <!--</li>-->
+    <!--</tr>-->
+
+    {% macro show(str) %}
+        <li style="color:#f60;">{{str}}</li>
+    {% endmacro %}
+
+    <h2>使用显示调用的宏</h2>
+    <ul>
+        {% for str in params.list%}
+            {{show(str)}}
+        {% endfor %}
+    </ul>
+    <!--引入macro.html并使用show_li宏-->
+    {% import 'macro.html' as macros %}
+    <ul>
+        {% for str in tup %}
+            {{macros.show_li(str)}}
+        {% endfor %}
+    </ul>
+</body>
+</html>
